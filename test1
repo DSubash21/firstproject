@@ -1,1 +1,49 @@
+#include<stdio.h>
+float balance=1000.00
+void deposit(float amount)
+{
+    balance+=amount;
+    printf("\n Amount %.2f deposited successfully. \n",amount);
+}
+void withdraw(float amount)
+{
+    if(amount>balance){
+        printf("\nInsufficient balance");
+    }else{
+        balance-=amount;
+        printf("\n Amount %.2f withdrawn successfully.",amount);
+    }
+void checkbalance(){
+    printf("\nYour current balance is %.2f\n",balance);
+}
+int main(){
+    int choice;
+    float amount;
+    while (1){
+        printf("\nBank Account Manager");
+        printf("1.Deposit\n");
+        printf("2.Withdrawn\n");
+        printf("3.Check Balance\n");
+        printf("4.Exit\n");
+        scanf("%d",choice);
+        switch(choice){
+            case 1:
+            printf("\n Enter amount to deposit:");
+            scanf("f,&amount");
+            deposit(amount);
+            break;
+            case 2:
+            printf("\n Enter amount to withdraw:");
+            scanf("f",&amount);
+            withdraw(amount);
+            break;
+            case 4:
+            printf("\nExiting...");
+            return 0;
+            default:
+            printf("Invalid choice. Please select valid option.\n");
+        }
+    }
+    return 0;
 
+ }g
